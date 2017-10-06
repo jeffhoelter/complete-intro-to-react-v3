@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>svideo</title>
+  </head>
+  <body>
+    <div id=app>
+    </div>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script>
+    const MyTitle = function(props) {
+  const tvShow = props.show;
+  return React.createElement(
+    "div",
+    null,
+    React.createElement("h3", { style: { color: props.color } }, "My favorite TV show: " + tvShow)
+  );
+};
+
+const MyFirstComponent = function() {
+  return React.createElement(
+    "div",
+    null,
+    React.createElement(
+      "h1",
+      null,
+      React.createElement(MyTitle, {
+        show: "Game of Thrones",
+        color: "Yellow"
+      }),
+      React.createElement(MyTitle, { show: "The Deuce", color: "YellowGreen" }),
+      React.createElement(MyTitle, { show: "Mickey Mouse", color: "peru" })
+    )
+  );
+};
+
+ReactDOM.render(React.createElement(MyFirstComponent), document.getElementById("app"));
+</script>
+  </body>
+</html>

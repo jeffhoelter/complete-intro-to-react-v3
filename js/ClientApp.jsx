@@ -6,7 +6,7 @@ const App = () => (
     <div className="landing">
       <h1>svideo</h1>
       <input type="text" placeholder="Search" />
-      <a>or Browse All</a>
+      <a href="https://google.com">or Browse All1234</a>
     </div>
   </div>
 );

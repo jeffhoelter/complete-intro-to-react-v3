@@ -3,6 +3,8 @@
     "api": "node ratingsAPI.js",
     "build": "webpack",
     "watch": "webpack --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint **/*.{js,jsx} --quiet"
   },
   "dependencies": {

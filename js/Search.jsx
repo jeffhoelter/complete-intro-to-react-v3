@@ -1,11 +1,18 @@
-import React, { Component } from "react";
+// @flow
 
-import preload from "../data.json";
+import React, { Component } from "react";
 import ShowCard from "./ShowCard";
 
 class Search extends Component {
+  // defaultProps = {
+  //   shows: []
+  // };
   state = {
-    searchTerm: "",
+    searchTerm: ""
+  };
+
+  props: {
+    shows: Array<ShowCard>
   };
 
   handleSearchTermChange = event => {
@@ -25,10 +32,10 @@ class Search extends Component {
           />
         </header>
         <div>
-          {preload.shows
+          {this.props.shows
             .filter(
               show =>
-                `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0,
+                `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
             )
             .map(show => <ShowCard key={show.imdbID} show={show} />)}
         </div>

@@ -15,7 +15,7 @@ class Search extends Component {
     shows: Array<ShowCard>
   };
 
-  handleSearchTermChange = event => {
+  handleSearchTermChange = (event: SyntheticKeyboardEvent<T>) => {
     this.setState({ searchTerm: event.target.value });
   };
 
@@ -35,7 +35,9 @@ class Search extends Component {
           {this.props.shows
             .filter(
               show =>
-                `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
+                `${show.title} ${show.description}`
+                  .toUpperCase()
+                  .indexOf(this.state.searchTerm.toUpperCase()) >= 0
             )
             .map(show => <ShowCard key={show.imdbID} show={show} />)}
         </div>

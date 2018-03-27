@@ -1,5 +1,6 @@
+// @flow
+
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -17,25 +18,25 @@ const ImageWrapper = styled.img`
   margin-right: 10px;
 `;
 
-const ShowCard = ({ show }) => (
+const ShowCard = (props: {
+  title: string,
+  poster: string,
+  year: string,
+  description: string,
+  description2: string
+}) => (
   <Wrapper>
-    <ImageWrapper alt={`${show.title} Show Poster`} src={`/public/img/posters/${show.poster}`} />
+    <ImageWrapper
+      alt={`${props.title} Show Poster`}
+      src={`/public/img/posters/${props.poster}`}
+    />
     <div>
-      <h3>{show.title}</h3>
-      <h4>{show.year}</h4>
-      <p>{show.description}</p>
-      <p>{show.description2}</p>
+      <h3>{props.title}</h3>
+      <h4>{props.year}</h4>
+      <p>{props.description}</p>
+      <p>{props.description2}</p>
     </div>
   </Wrapper>
 );
-
-ShowCard.propTypes = {
-  show: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 export default ShowCard;

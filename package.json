@@ -66,9 +66,15 @@
     "webpack-dev-server": "2.9.1"
   },
   "jest": {
-    "setupFiles": ["./helpers/enzyme-setup.js"],
+    "setupFiles": [
+      "./helpers/enzyme-setup.js"
+    ],
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
-    "unmockedModulePathPatterns": ["react", "enzyme", "jest-enzyme"]
+    "unmockedModulePathPatterns": [
+      "react",
+      "enzyme",
+      "jest-enzyme"
+    ]
   },
   "name": "complete-intro-to-react",
   "version": "3.0.0",

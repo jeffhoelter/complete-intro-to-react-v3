@@ -3,16 +3,16 @@
 import React, { Component } from "react";
 import ShowCard from "./ShowCard";
 
-class Search extends Component {
-  state = {
-    searchTerm: ""
-  };
+type Props = {
+  shows: Array<ShowCard>
+};
 
-  props: {
-    shows: Array<ShowCard>
-  };
+type State = {
+  searchTerm: ""
+};
 
-  handleSearchTermChange = (event: SyntheticKeyboardEvent<T>) => {
+class Search extends Component<Props, State> {
+  handleSearchTermChange = (event: SyntheticKeyboardEvent) => {
     this.setState({ searchTerm: event.target.value });
   };
 

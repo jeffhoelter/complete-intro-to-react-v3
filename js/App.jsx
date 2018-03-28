@@ -1,4 +1,4 @@
-// @Flow
+// @flow
 
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -22,7 +22,9 @@ const App = () => (
         <Route
           path="/details/:id"
           component={(props: { match: Match }) => {
-            const selectedShow = preload.shows.find(show => props.match.params.id === show.imdbID);
+            const selectedShow = preload.shows.find(
+              show => props.match.params.id === show.imdbID
+            );
             return <Details show={selectedShow} {...props} />;
           }}
         />

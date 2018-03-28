@@ -4,9 +4,6 @@ import React, { Component } from "react";
 import ShowCard from "./ShowCard";
 
 class Search extends Component {
-  // defaultProps = {
-  //   shows: []
-  // };
   state = {
     searchTerm: ""
   };

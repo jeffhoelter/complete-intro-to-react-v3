@@ -17,7 +17,7 @@ const App = () => (
         <Route exact path="/" component={Landing} />
         <Route
           path="/search"
-          component={() => <Search shows={preload.shows} />}
+          component={props => <Search shows={preload.shows} {...props} />}
         />
         <Route
           path="/details/:id"

@@ -12,8 +12,12 @@ type State = {
 };
 
 class Search extends Component<Props, State> {
-  handleSearchTermChange = (event: SyntheticKeyboardEvent) => {
-    this.setState({ searchTerm: event.target.value });
+  handleSearchTermChange = (
+    event: SyntheticKeyboardEvent<HTMLInputElement>
+  ) => {
+    this.setState({
+      searchTerm: (event.target: window.HTMLInputElement).value
+    });
   };
 
   render() {
@@ -32,11 +36,13 @@ class Search extends Component<Props, State> {
           {this.props.shows
             .filter(
               show =>
+                // $FlowFixMe
                 `${show.title} ${show.description}`
                   .toUpperCase()
                   .indexOf(this.state.searchTerm.toUpperCase()) >= 0
             )
-            .map(show => <ShowCard key={show.imdbID} show={show} />)}
+            // $FlowFixMe
+            .map(show => <ShowCard key={show.imdbID} {...show} />)}
         </div>
       </div>
     );

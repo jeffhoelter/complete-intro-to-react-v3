@@ -20,10 +20,10 @@ const ImageWrapper = styled.img`
 
 const ShowCard = (props: {
   title: string,
+  imdbID: string,
   poster: string,
   year: string,
-  description: string,
-  description2: string
+  description: string
 }) => (
   <Wrapper>
     <ImageWrapper
@@ -32,9 +32,9 @@ const ShowCard = (props: {
     />
     <div>
       <h3>{props.title}</h3>
+      <h3>{props.imdbID}</h3>
       <h4>{props.year}</h4>
       <p>{props.description}</p>
-      <p>{props.description2}</p>
     </div>
   </Wrapper>
 );

@@ -1,11 +1,9 @@
 [ignore]
-<PROJECT_ROOT>/node_modules/styled-components/*
 <PROJECT_ROOT>/node_modules/preact/*
 
 [include]
 
 [libs]
-styled-components
 
 [lints]
 

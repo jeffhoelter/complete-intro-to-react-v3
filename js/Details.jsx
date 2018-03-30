@@ -23,7 +23,8 @@ class Details extends Component<Props, State> {
   render() {
     const { title, description, year, poster, trailer } = this.props.show;
     let ratingComponent;
-    if (this.state.apiData.rating) {
+
+    if (this.state && this.state.apiData && this.state.apiData.rating) {
       ratingComponent = <h3>{this.state.apiData.rating}</h3>;
     } else {
       ratingComponent = <Spinner />;

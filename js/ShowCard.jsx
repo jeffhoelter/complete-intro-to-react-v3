@@ -2,6 +2,7 @@
 
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
   width: 32%;
@@ -35,6 +36,9 @@ const ShowCard = (props: {
       <h3>{props.imdbID}</h3>
       <h4>{props.year}</h4>
       <p>{props.description}</p>
+      <h4>
+        <Link to={`/details/${props.imdbID}`}>Movie Detail</Link>
+      </h4>
     </div>
   </Wrapper>
 );

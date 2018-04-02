@@ -19,13 +19,7 @@ const ImageWrapper = styled.img`
   margin-right: 10px;
 `;
 
-const ShowCard = (props: {
-  title: string,
-  imdbID: string,
-  poster: string,
-  year: string,
-  description: string
-}) => (
+const ShowCard = (props: Show) => (
   <Wrapper>
     <ImageWrapper
       alt={`${props.title} Show Poster`}

@@ -1,14 +1,13 @@
 // @flow
 
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import ShowCard from "./ShowCard";
 
 class Search extends Component {
-  state = {
-    searchTerm: ""
-  };
   props: {
-    shows: Array<Show>
+    shows: Array<Show>,
+    searchTerm: string
   };
   handleSearchTermChange = (
     event: SyntheticKeyboardEvent & { target: HTMLInputElement }
@@ -22,7 +21,7 @@ class Search extends Component {
           <h1>svideo</h1>
           <input
             onChange={this.handleSearchTermChange}
-            value={this.state.searchTerm}
+            value={this.props.searchTerm}
             type="text"
             placeholder="Search"
           />
@@ -42,4 +41,12 @@ class Search extends Component {
   }
 }
 
-export default Search;
+const mapStateToProps = state => ({ searchTerm: state.searchTerm });
+
+// const mapDispatchToProps = (dispatch: Function) => ({
+//   handleSearchTermChange(event) {
+//     dispatch(setSearchTerm(event.target.value));
+//   }
+// });
+
+export default connect(mapStateToProps)(Search);

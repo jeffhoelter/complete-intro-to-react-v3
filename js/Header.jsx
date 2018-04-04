@@ -10,14 +10,18 @@ const Header = (props: { showSearch?: boolean }) => {
   } else {
     utilSpace = (
       <h2>
-        <Link to="/search">Back</Link>
+        <Link href="/search" to="/search">
+          Back
+        </Link>
       </h2>
     );
   }
   return (
     <header>
       <h1>
-        <Link to="/">svideo</Link>
+        <Link href="/" to="/">
+          svideo
+        </Link>
       </h1>
       {utilSpace}
     </header>

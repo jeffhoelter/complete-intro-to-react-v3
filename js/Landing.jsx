@@ -13,6 +13,11 @@ class Landing extends Component {
     history: RouterHistory
   };
 
+  browseAll = (event: SyntheticClickEvent) => {
+    event.preventDefault();
+    setSearchTerm("");
+    this.props.history.push("/search");
+  };
   goToSearch = (event: SyntheticKeyboardEvent) => {
     event.preventDefault();
     this.props.history.push("/search");
@@ -20,15 +25,16 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing">
-        <h1>{this.props.searchTerm}</h1>
-        <form onSubmit={this.goToSearch} />
-        <input
-          onChange={this.props.handleSearchTermChange}
-          type="text"
-          value={this.props.searchTerm}
-          placeholder="Search"
-        />
-        <Link href="/search2" to="/search">
+        <h1>svideo</h1>
+        <form onSubmit={this.goToSearch}>
+          <input
+            onChange={this.props.handleSearchTermChange}
+            type="text"
+            value={this.props.searchTerm}
+            placeholder="Search"
+          />
+        </form>
+        <Link onClick={this.browseAll} href="/search" to="/search">
           or Browse All
         </Link>
       </div>

@@ -31,7 +31,9 @@ const ShowCard = (props: Show) => (
       <h4>{props.year}</h4>
       <p>{props.description}</p>
       <h4>
-        <Link to={`/details/${props.imdbID}`}>Movie Detail</Link>
+        <Link href={`/details/${props.imdbID}`} to={`/details/${props.imdbID}`}>
+          Movie Detail
+        </Link>
       </h4>
     </div>
   </Wrapper>

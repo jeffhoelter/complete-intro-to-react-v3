@@ -1,5 +1,9 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, render } from "enzyme";
+import { Provider } from "react-redux";
+import { MemoryRouter } from "react-router-dom";
+import store from "../store";
+import { setSearchTerm } from "../actionCreators";
 import Search, { Unwrapped as UnwrappedSearch } from "../Search";
 import ShowCard from "../ShowCard";
 import preload from "../../data.json";
@@ -20,15 +24,19 @@ test("Search should render the correct amount of shows", () => {
 
 test("Should render correct amount of shows based on search terms", () => {
   const searchTerm = "black";
-  const component = shallow(
-    <UnwrappedSearch searchTerm={searchTerm} shows={preload.shows} />
+  store.dispatch(setSearchTerm(searchTerm));
+  const component = render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <Search searchTerm={searchTerm} shows={preload.shows} />
+      </MemoryRouter>
+    </Provider>
   );
-  component.find("input").simulate("change", { target: { value: searchTerm } });
   const expectedShowCount = preload.shows.filter(
     show =>
       `${show.title} ${show.description}`
         .toUpperCase()
         .indexOf(searchTerm.toUpperCase()) >= 0
   ).length;
-  expect(component.find(ShowCard).length).toEqual(expectedShowCount);
+  expect(component.find(".show-card").length).toEqual(expectedShowCount);
 });

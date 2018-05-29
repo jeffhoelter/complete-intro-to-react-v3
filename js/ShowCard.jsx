@@ -20,7 +20,7 @@ const ImageWrapper = styled.img`
 `;
 
 const ShowCard = (props: Show) => (
-  <Wrapper>
+  <Wrapper className="show-card">
     <ImageWrapper
       alt={`${props.title} Show Poster`}
       src={`/public/img/posters/${props.poster}`}

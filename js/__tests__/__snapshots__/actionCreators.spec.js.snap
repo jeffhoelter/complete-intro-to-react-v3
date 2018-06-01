@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return a valid API data object 1`] = `
+Object {
+  "payload": Object {
+    "description": "U.S. Attorney Chuck Rhoades goes after hedge fund king, Bobby \\"Axe\\" Axelrod in a battle between two powerful New York figures.",
+    "imdbID": "tt4270492",
+    "poster": "b.jpg",
+    "rating": "4.5",
+    "title": "Billions",
+    "trailer": "_raEUMLL-ZI",
+    "year": "2016–",
+  },
+  "type": "ADD_API_DATA",
+}
+`;
+
+exports[`should return a valid search object 1`] = `
+Object {
+  "error": null,
+  "payload": "New York",
+  "type": "SET_SEARCH_TERM",
+}
+`;
